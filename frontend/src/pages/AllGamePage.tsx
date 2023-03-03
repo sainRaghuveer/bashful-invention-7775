@@ -8,15 +8,15 @@ const AllGamePage = () => {
     const Navigate = useNavigate()
 
     const bounceBall=()=>{
-
+        Navigate("/bouncing")
     }
 
     const matching=()=>{
-
+        Navigate("/home")
     }
 
     const cards=()=>{
-
+        Navigate("/cardgame")
     }
   return (
     <div id='container'>
