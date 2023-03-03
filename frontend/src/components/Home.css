@@ -1,0 +1,21 @@
+.home-main-container {
+    border: 1px solid red;
+    height: 100vh;
+}
+
+.home-child1 {
+    border: 1px solid green;
+    height: 65%;
+    background-image: url("http://sfwallpaper.com/images/game-background-images-12.jpg");
+}
+
+
+
+
+
+.bird {
+    width: 200px;
+    position: absolute;
+    left: 80px;
+    bottom: 350px;
+}
