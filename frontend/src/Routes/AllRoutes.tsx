@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Heading from '../components/Ball/Heading'
 import Game from '../components/Game/Game'
 import HomePage from '../pages/HomePage'
 import Login from '../pages/Login'
@@ -11,6 +12,7 @@ const AllRoutes = () => {
       <Route path='/' element={<HomePage />}></Route>
       <Route path='/register' element={<Register />}></Route>
       <Route path='/login' element={<Login />}></Route>
+      <Route path='/bouncing' element={<Heading/>}></Route>
       <Route path="/cardgame" element={<Game/>}/>
     </Routes>
   )
