@@ -26,7 +26,7 @@ const Login = () => {
         .then((res) => {
           if (res.msg == "Login Successful") {
             alert("Login Successful")
-            Navigate('/')
+            Navigate('/allgame')
             console.log(res)
 
           } else {

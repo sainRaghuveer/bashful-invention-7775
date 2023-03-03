@@ -1,21 +1,105 @@
-.home-main-container {
-    border: 1px solid red;
-    height: 100vh;
-}
 
 .home-child1 {
-    border: 1px solid green;
-    height: 65%;
-    background-image: url("http://sfwallpaper.com/images/game-background-images-12.jpg");
+    /* border: 1px solid green; */
+    height: 100%;
+    background-image: url("https://wallpaperaccess.com/full/3995243.jpg");
+    background-color: gray;
+    margin: auto;
+
+}
+.home-child2 {
+    /* border: 1px solid green; */
+    height: 100%;
+    background-image: url("https://wallpaperaccess.com/full/3995243.jpg");
+    background-color: gray;
+    margin: auto;
+    display: flex;
+
+}
+
+#input{
+    margin-top: 400px;
+    width: 30%;
+}
+#input>input{
+    display: block;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid gray;
+    width: 100%;
+}
+#input>button{
+    padding: 20px;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+}
+
+#target{
+    width: 50%;
+    border: 2px solid rgb(232, 222, 222);
+    padding: 15px;
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+#result{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#result>div{
+    width: 50%;
+}
+#keyboard{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 30px);
+    gap:15px;
+    border: 0px solid blue;
+    width: 60%;
+    margin: auto;
+    margin-top: 360px;
+    background-color: #262c2c;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 30px;
+    border-radius: 20px;
+    bottom: 0;
+}
+#keyboard>div{
+    border: 0px solid red;
+    background-color: #2e3639;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight:bold ;
+    color: rgb(43, 182, 182);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#keyboard>div:hover{
+    background-color: rgb(99, 99, 133);
+    color: black;
+}
+#enter{
+    grid-area: 3/11/4/span 2;
+}
+#shift{
+    grid-area: 4/11/5/span 2;
+    /*  */
+}
+#space{
+    grid-column: 5/span 4;
 }
 
 
 
-
-
-.bird {
+/* .bird {
     width: 200px;
     position: absolute;
     left: 80px;
     bottom: 350px;
-}
+} */
