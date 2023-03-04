@@ -18,7 +18,7 @@
 }
 
 #input {
-    margin-top: 300px;
+    margin-top:270px;
     width: 30%;
 }
 
@@ -112,6 +112,19 @@
     font-size: larger;
   }
 
+  #score1{
+    width: 20%;
+    height: 50px;
+    /* border: 1px solid white; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #score1>h1{
+    font-size: larger;
+  }
 #keyboard>div {
     border: 0px solid red;
     background-color: #2e3639;
