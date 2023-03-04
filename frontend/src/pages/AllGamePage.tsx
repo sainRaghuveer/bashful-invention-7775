@@ -57,11 +57,11 @@ const AllGamePage = () => {
                 <button onClick={bounceBall}>Play</button>
             </div>
             <div className="children">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh6FjDch9b1JXx2zYsDPzo5ICXdurlbzcnlg&usqp=CAU" alt="" />
+                <img src="https://github.com/sainRaghuveer/bashful-invention-7775/raw/master/frontend/src/Images/word.png?raw=true" alt="" />
                 <button onClick={matching}>Play</button>
             </div>
             <div className="children">
-                <img src="https://www.memozor.com/templates/memoire/images/zoom/memory_game_the_minions_characters.jpg" alt="" />
+                <img src="https://github.com/sainRaghuveer/bashful-invention-7775/raw/master/frontend/src/Images/card.png?raw=true" alt="" />
                 <button onClick={cards}>Play</button>
             </div>
         </div>
