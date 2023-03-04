@@ -12,6 +12,10 @@ const Register = () => {
 
   const Navigate = useNavigate()
 
+  const goback=()=>{
+    Navigate("/login")
+  }
+
   const RegisterFunc = () => {
     const obj = {
       name, email, password
@@ -65,8 +69,9 @@ const Register = () => {
       <div className='register-input-con'>
         <input type="text" placeholder='Name' onChange={(e) => setName(e.target.value)} />
         <input type="text" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-        <input type="text" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
         <button onClick={RegisterFunc}>Register</button>
+        <button onClick={goback}>Login</button>
       </div>
       <img className='bird2' src="https://thumbs.gfycat.com/TiredOblongArabianhorse-size_restricted.gif" alt="" />
     </div>
