@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./AllGamePage.css";
 import { useNavigate } from 'react-router-dom'
+import { Interface } from 'readline';
+import { game } from '../constants';
 
 
 const AllGamePage = () => {
 
+    // const [name, setName] = useState<string>("");
+
     const Navigate = useNavigate()
+    
+    // function getCurrentUser(): void {
+    //     let userStr = localStorage.getItem('gameUsername');
+    //     setName(JSON.parse(userStr))
+    //   }
+      
 
     const bounceBall=()=>{
         Navigate("/bouncing")
