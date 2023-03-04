@@ -14,8 +14,31 @@ const Game = () => {
     console.log(CreateBoard())
     function handlecardClick(whichcardclicked:CardType){
       setCards(prev=>prev.map(card=>card.id===whichcardclicked.id ? {...card,flipped:true,clickable:false}:card))
+      if(!clickedCard){
+        setClickedCard({...whichcardclicked})
+        return
+      }
+      if(clickedCard.matchingCardId===whichcardclicked.id){
+        setMatchPairs(prev=>prev+1)
+        setCards(prev =>
+          prev.map(card =>
+            card.id === clickedCard.id || card.id === whichcardclicked.id
+              ? { ...card,  clickable: false }
+              : card
+          )
+        )
+       setClickedCard(undefined)
+        return
+      }
+      setTimeout(() => {
+        setCards(prev=>prev.map(card=>card.id===clickedCard.id||card.id===whichcardclicked.id?{...card,flipped:false,clickable:true}:card))
+      }, 1000);
+      setClickedCard(undefined)
+
     }
+   
     // console.log("cards",cards)
+    
   return (
     <div>
         {/* <CreateBoard/> */}
