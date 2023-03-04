@@ -67,7 +67,7 @@ const Login = () => {
         <div className='register-input-con'>
 
           <input type="text" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-          <input type="text" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
           <button onClick={RegisterFunc}>Login</button>
         </div>
         <img className='bird2' src="https://thumbs.gfycat.com/TiredOblongArabianhorse-size_restricted.gif" alt="" />
