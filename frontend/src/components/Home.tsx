@@ -7,9 +7,10 @@ const Home = () => {
   const [data, setData] = useState();
   const [target, setTarget] = useState<string>("");
   const [score, setScore] = useState<number>(0)
-  const [status, setStatus] = useState<boolean>(false)
-  const toast=useToast();
-  
+  const [status, setStatus] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(30);
+  const toast = useToast();
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWord(e.target.value)
@@ -29,19 +30,19 @@ const Home = () => {
 
   const refresh = (value: string) => {
     if (data == target) {
-      setScore(score+10);
+      setScore(score + 10);
       toast({
-        title: `Hurray!! You did it, now your score is ${score+10}`,
+        title: `Hurray!! You did it, now your score is ${score + 10}`,
         status: "success",
         isClosable: true,
-        position:"top"
+        position: "top"
       })
     } else {
       toast({
         title: `Oops!! You lost it`,
         status: "error",
         isClosable: true,
-        position:"top"
+        position: "top"
       })
       setScore(0);
     }
@@ -73,7 +74,7 @@ const Home = () => {
               title: `Something went wrong`,
               status: "error",
               isClosable: true,
-              position:"top"
+              position: "top"
             })
           }
         })
@@ -84,10 +85,27 @@ const Home = () => {
         title: `Something went wrong`,
         status: "error",
         isClosable: true,
-        position:"top"
+        position: "top"
       })
     }
   }
+
+  const handleTimeout = () => {
+    const setIntervalId = setInterval(() => {
+      setCount((prev) => {
+        if (prev <= 1) {
+          clearInterval(setIntervalId);
+          return 0;
+        }
+        return prev - 1;
+      })
+    }, 1000);
+    const cleanup = () => {
+      clearInterval(setIntervalId);
+    }
+  }
+
+
   return (
     <div>
 
@@ -95,7 +113,7 @@ const Home = () => {
         <div id='result'>
           <div id='slide'>
             <h1 id='target'>
-              {(!status)?<h1>Loading...</h1>:data}
+              {(!status) ? <h1>Loading...</h1> : data}
             </h1>
           </div>
           <div id='slide1'>
@@ -106,12 +124,18 @@ const Home = () => {
           </div>
         </div>
         <div id='score'>
-          <h1>Your Score:-  {score}</h1>
+          <h1>Your Score:- {score}</h1>
+        </div>
+        <div id='score1'>
+          <h1>Timer:- {count}</h1>
         </div>
         <div className='home-child2'>
           <div id='input'>
             <input type="number" placeholder='Type Number According to your Difficulty' value={word} onChange={handleChange} />
-            <button onClick={submitData}>Start</button>
+            <button onClick={() => {
+              submitData()
+              handleTimeout()
+            }}>Start</button>
           </div>
           <div id="keyboard" >
             <div>tab</div>
