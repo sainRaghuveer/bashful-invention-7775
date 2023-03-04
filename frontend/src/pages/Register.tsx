@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../pages/Register.css'
+import '../pages/Register.css';
+import { useToast } from '@chakra-ui/react'
 
 const Register = () => {
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
+  const toast=useToast();
 
   const Navigate = useNavigate()
 
@@ -26,18 +28,33 @@ const Register = () => {
       }).then(res => res.json())
         .then((res) => {
           if (res.success) {
-            alert("Register")
+            toast({
+              title: `Registration successful`,
+              status: "success",
+              isClosable: true,
+              position:"top"
+            })
             Navigate('/login')
             console.log(res)
 
           } else {
-            alert(res.message)
+            toast({
+              title: `Something went wrong`,
+              status: "error",
+              isClosable: true,
+              position:"top"
+            })
           }
           console.log(res)
         })
     } catch (err) {
       console.log(err)
-      alert("Something Wrong")
+      toast({
+        title: `Something went wrong`,
+        status: "error",
+        isClosable: true,
+        position:"top"
+      })
     }
   }
 

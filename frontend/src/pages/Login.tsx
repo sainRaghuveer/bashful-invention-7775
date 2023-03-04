@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../pages/Register.css'
+import '../pages/Register.css';
+import { useToast } from '@chakra-ui/react'
 
 const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [name, setName] = useState<string>("")
+  const toast=useToast();
 
   const Navigate = useNavigate()
 
@@ -28,18 +30,33 @@ const Login = () => {
           if (res.msg == "Login Successful") {
             setName(res.user[0].name);
             localStorage.setItem("gameUsername",JSON.stringify(name));
-            alert("Login Successful")
+            toast({
+              title: `Logged in successful`,
+              status: "success",
+              isClosable: true,
+              position:"top"
+            })
             Navigate('/allgame')
             console.log(res)
 
           } else {
-            alert(res.message)
+            toast({
+              title: `Something went wrong`,
+              status: "error",
+              isClosable: true,
+              position:"top"
+            })
           }
           console.log(res)
         })
     } catch (err) {
       console.log(err)
-      alert("Something Wrong")
+      toast({
+        title: `Something went wrong`,
+        status: "error",
+        isClosable: true,
+        position:"top"
+      })
     }
   }
   return (
