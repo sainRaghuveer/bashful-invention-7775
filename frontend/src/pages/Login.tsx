@@ -6,6 +6,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [name, setName] = useState<string>("")
 
   const Navigate = useNavigate()
 
@@ -25,6 +26,8 @@ const Login = () => {
       }).then(res => res.json())
         .then((res) => {
           if (res.msg == "Login Successful") {
+            setName(res.user[0].name);
+            localStorage.setItem("gameUsername",JSON.stringify(name));
             alert("Login Successful")
             Navigate('/allgame')
             console.log(res)
