@@ -47,9 +47,8 @@ Site link->https://frontend-sainraghuveer.vercel.app/
 <ul>
     <li>
      <div>
-         <h4>Homepage Page</h4>
-          <img src="" alt=" homepage_1"/>
-          <img src="" alt="homepage_2"/>
+         <h4>Register Page</h4>
+          <img src="https://github.com/sainRaghuveer/bashful-invention-7775/blob/master/frontend/src/Images/Register.png?raw=true" alt=" homepage_1"/>
      </div>
     </li>
     <li>
