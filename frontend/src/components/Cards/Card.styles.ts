@@ -26,6 +26,7 @@ export const FrontImg = styled.img<Props>`
   ${sharedStyles}
   z-index: ${props => (props.flipped ? 2 : 1)};
   transform: ${props => (props.flipped ? 'rotate(0deg)' : 'rotateY(180deg)')};
+  
 `;
 
 export const BackImg = styled.img<Props>`

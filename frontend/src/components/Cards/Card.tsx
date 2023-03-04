@@ -13,9 +13,9 @@ const Card1 : React.FC<Props> = ({card,callback}) => {
   if(card.clickable) callback(card)
  }
  return (
-    <Wrapper onClick={handleClick}>
-        <FrontImg flipped={card.flipped} src={card.frontImage} alt="something wrong"/>
-        <BackImg flipped={card.flipped} src={card.backImage} alt="something wrong with back image"/>
+    <Wrapper onClick={handleClick} >
+        <FrontImg flipped={card.flipped} src={card.frontImage} alt="something wrong" style={{borderRadius:"20px"}}/>
+        <BackImg flipped={card.flipped} src={card.backImage} alt="something wrong with back image" style={{borderRadius:"20px"}}/>
     </Wrapper>
  )
   }
