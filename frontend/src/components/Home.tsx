@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import "./Home.css";
+import { useToast } from '@chakra-ui/react'
 
 const Home = () => {
   const [word, setWord] = useState("");
   const [data, setData] = useState();
   const [target, setTarget] = useState<string>("");
-
-  let score = 0;
+  const [score, setScore] = useState<number>(0)
+  const [status, setStatus] = useState<boolean>(false)
+  const toast=useToast();
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWord(e.target.value)
@@ -26,10 +29,21 @@ const Home = () => {
 
   const refresh = (value: string) => {
     if (data == target) {
-      score += 10;
-      alert("Hurray!!!! You did it")
+      setScore(score+10);
+      toast({
+        title: `Hurray!! You did it, now your score is ${score+10}`,
+        status: "success",
+        isClosable: true,
+        position:"top"
+      })
     } else {
-      alert("Sorry you lost")
+      toast({
+        title: `Oops!! You lost it`,
+        status: "error",
+        isClosable: true,
+        position:"top"
+      })
+      setScore(0);
     }
     setTarget("")
 
@@ -40,6 +54,7 @@ const Home = () => {
       num: word
     }
     try {
+      setStatus(false);
       fetch(`https://dull-blue-buffalo-cuff.cyclic.app/users/random`, {
         method: "POST",
         body: JSON.stringify(data),
@@ -50,14 +65,27 @@ const Home = () => {
         .then((res) => {
           console.log(res)
           if (res.success) {
+            setStatus(true)
             setData(res.result.toUpperCase())
           } else {
-            alert("Something went wrong")
+            setStatus(false)
+            toast({
+              title: `Something went wrong`,
+              status: "error",
+              isClosable: true,
+              position:"top"
+            })
           }
         })
     } catch (err) {
+      setStatus(false)
       console.log(err)
-      alert("Something went wrong")
+      toast({
+        title: `Something went wrong`,
+        status: "error",
+        isClosable: true,
+        position:"top"
+      })
     }
   }
   return (
@@ -67,7 +95,7 @@ const Home = () => {
         <div id='result'>
           <div id='slide'>
             <h1 id='target'>
-              {data}
+              {(!status)?<h1>Loading...</h1>:data}
             </h1>
           </div>
           <div id='slide1'>

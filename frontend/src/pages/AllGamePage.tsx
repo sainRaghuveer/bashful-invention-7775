@@ -3,13 +3,15 @@ import "./AllGamePage.css";
 import { useNavigate } from 'react-router-dom'
 import { Interface } from 'readline';
 import { game } from '../constants';
+import { useToast } from '@chakra-ui/react'
 
 
 const AllGamePage = () => {
 
     // const [name, setName] = useState<string>("");
 
-    const Navigate = useNavigate()
+    const Navigate = useNavigate();
+    const toast=useToast();
     
     // function getCurrentUser(): void {
     //     let userStr = localStorage.getItem('gameUsername');
@@ -19,14 +21,32 @@ const AllGamePage = () => {
 
     const bounceBall=()=>{
         Navigate("/bouncing")
+        toast({
+            title: `Welcome in bouncing world`,
+            status: "info",
+            isClosable: true,
+            position:"top"
+          })
     }
 
     const matching=()=>{
         Navigate("/home")
+        toast({
+            title: `Welcome in word world`,
+            status: "info",
+            isClosable: true,
+            position:"top"
+          })
     }
 
     const cards=()=>{
         Navigate("/cardgame")
+        toast({
+            title: `Welcome in cards world`,
+            status: "info",
+            isClosable: true,
+            position:"top"
+          })
     }
   return (
     <div id='container'>
